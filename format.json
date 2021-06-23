@@ -1,0 +1,511 @@
+{
+    "IsErroredOnProcessing": false,
+    "OCRExitCode": 1,
+    "ParsedResults": [
+        {
+            "ErrorDetails": "",
+            "ErrorMessage": "",
+            "FileParseExitCode": 1,
+            "ParsedText": "\u305d\u3046\u3044\u3048\u3070\r\n\u52e2\u3044\u3067\u624b\u3092\u63e1\u3063\u3066\r\n\u3057\u307e\u3063\u305f\u304c\r\n\u5acc\u3060\u3063\u305f\u3089\r\n\u96e2\u3057\u3066\u3082\u3089\u3063\u3066\u3082\r\n\u30e9\u3066\u3001\u30d5\u30ab\r\n\u3046\u3093\r\n\u7b2cI\u8a71\u300c\u4e00\u7dd2\u306b\u5c45\u305f\u3044\u306e\u300d\r\n\u25c6\u7b2c1.5\u8a71\u3082\r\n\u66f4\u65b0\u4e2d\u2033\u30fb\r\n",
+            "TextOrientation": "0",
+            "TextOverlay": {
+                "HasOverlay": true,
+                "Lines": [
+                    {
+                        "LineText": "\u305d\u3046\u3044\u3048\u3070",
+                        "MaxHeight": 20.0,
+                        "MinTop": 21.0,
+                        "Words": [
+                            {
+                                "Height": 20.0,
+                                "Left": 657.0,
+                                "Top": 21.0,
+                                "Width": 15.0,
+                                "WordText": "\u305d"
+                            },
+                            {
+                                "Height": 20.0,
+                                "Left": 659.0,
+                                "Top": 44.0,
+                                "Width": 11.0,
+                                "WordText": "\u3046"
+                            },
+                            {
+                                "Height": 14.0,
+                                "Left": 656.0,
+                                "Top": 69.0,
+                                "Width": 17.0,
+                                "WordText": "\u3044"
+                            },
+                            {
+                                "Height": 18.0,
+                                "Left": 658.0,
+                                "Top": 89.0,
+                                "Width": 14.0,
+                                "WordText": "\u3048"
+                            },
+                            {
+                                "Height": 19.0,
+                                "Left": 656.0,
+                                "Top": 111.0,
+                                "Width": 20.0,
+                                "WordText": "\u3070"
+                            }
+                        ]
+                    },
+                    {
+                        "LineText": "\u52e2\u3044\u3067\u624b\u3092\u63e1\u3063\u3066",
+                        "MaxHeight": 21.0,
+                        "MinTop": 21.0,
+                        "Words": [
+                            {
+                                "Height": 21.0,
+                                "Left": 626.0,
+                                "Top": 21.0,
+                                "Width": 21.0,
+                                "WordText": "\u52e2"
+                            },
+                            {
+                                "Height": 14.0,
+                                "Left": 628.0,
+                                "Top": 47.0,
+                                "Width": 18.0,
+                                "WordText": "\u3044"
+                            },
+                            {
+                                "Height": 18.0,
+                                "Left": 628.0,
+                                "Top": 67.0,
+                                "Width": 18.0,
+                                "WordText": "\u3067"
+                            },
+                            {
+                                "Height": 21.0,
+                                "Left": 626.0,
+                                "Top": 88.0,
+                                "Width": 21.0,
+                                "WordText": "\u624b"
+                            },
+                            {
+                                "Height": 19.0,
+                                "Left": 629.0,
+                                "Top": 111.0,
+                                "Width": 16.0,
+                                "WordText": "\u3092"
+                            },
+                            {
+                                "Height": 20.0,
+                                "Left": 626.0,
+                                "Top": 133.0,
+                                "Width": 21.0,
+                                "WordText": "\u63e1"
+                            },
+                            {
+                                "Height": 10.0,
+                                "Left": 631.0,
+                                "Top": 161.0,
+                                "Width": 15.0,
+                                "WordText": "\u3063"
+                            },
+                            {
+                                "Height": 17.0,
+                                "Left": 628.0,
+                                "Top": 180.0,
+                                "Width": 17.0,
+                                "WordText": "\u3066"
+                            }
+                        ]
+                    },
+                    {
+                        "LineText": "\u3057\u307e\u3063\u305f\u304c",
+                        "MaxHeight": 21.0,
+                        "MinTop": 22.0,
+                        "Words": [
+                            {
+                                "Height": 18.0,
+                                "Left": 603.0,
+                                "Top": 22.0,
+                                "Width": 14.0,
+                                "WordText": "\u3057"
+                            },
+                            {
+                                "Height": 21.0,
+                                "Left": 602.0,
+                                "Top": 43.0,
+                                "Width": 13.0,
+                                "WordText": "\u307e"
+                            },
+                            {
+                                "Height": 11.0,
+                                "Left": 603.0,
+                                "Top": 71.0,
+                                "Width": 15.0,
+                                "WordText": "\u3063"
+                            },
+                            {
+                                "Height": 19.0,
+                                "Left": 600.0,
+                                "Top": 89.0,
+                                "Width": 17.0,
+                                "WordText": "\u305f"
+                            },
+                            {
+                                "Height": 17.0,
+                                "Left": 599.0,
+                                "Top": 112.0,
+                                "Width": 21.0,
+                                "WordText": "\u304c"
+                            }
+                        ]
+                    },
+                    {
+                        "LineText": "\u5acc\u3060\u3063\u305f\u3089",
+                        "MaxHeight": 21.0,
+                        "MinTop": 23.0,
+                        "Words": [
+                            {
+                                "Height": 21.0,
+                                "Left": 141.0,
+                                "Top": 23.0,
+                                "Width": 21.0,
+                                "WordText": "\u5acc"
+                            },
+                            {
+                                "Height": 18.0,
+                                "Left": 143.0,
+                                "Top": 47.0,
+                                "Width": 20.0,
+                                "WordText": "\u3060"
+                            },
+                            {
+                                "Height": 11.0,
+                                "Left": 146.0,
+                                "Top": 73.0,
+                                "Width": 15.0,
+                                "WordText": "\u3063"
+                            },
+                            {
+                                "Height": 18.0,
+                                "Left": 143.0,
+                                "Top": 92.0,
+                                "Width": 17.0,
+                                "WordText": "\u305f"
+                            },
+                            {
+                                "Height": 20.0,
+                                "Left": 146.0,
+                                "Top": 113.0,
+                                "Width": 13.0,
+                                "WordText": "\u3089"
+                            }
+                        ]
+                    },
+                    {
+                        "LineText": "\u96e2\u3057\u3066\u3082\u3089\u3063\u3066\u3082",
+                        "MaxHeight": 21.0,
+                        "MinTop": 23.0,
+                        "Words": [
+                            {
+                                "Height": 21.0,
+                                "Left": 113.0,
+                                "Top": 23.0,
+                                "Width": 21.0,
+                                "WordText": "\u96e2"
+                            },
+                            {
+                                "Height": 18.0,
+                                "Left": 118.0,
+                                "Top": 47.0,
+                                "Width": 14.0,
+                                "WordText": "\u3057"
+                            },
+                            {
+                                "Height": 17.0,
+                                "Left": 115.0,
+                                "Top": 70.0,
+                                "Width": 17.0,
+                                "WordText": "\u3066"
+                            },
+                            {
+                                "Height": 19.0,
+                                "Left": 117.0,
+                                "Top": 91.0,
+                                "Width": 12.0,
+                                "WordText": "\u3082"
+                            },
+                            {
+                                "Height": 20.0,
+                                "Left": 117.0,
+                                "Top": 113.0,
+                                "Width": 14.0,
+                                "WordText": "\u3089"
+                            },
+                            {
+                                "Height": 11.0,
+                                "Left": 118.0,
+                                "Top": 140.0,
+                                "Width": 15.0,
+                                "WordText": "\u3063"
+                            },
+                            {
+                                "Height": 17.0,
+                                "Left": 115.0,
+                                "Top": 159.0,
+                                "Width": 17.0,
+                                "WordText": "\u3066"
+                            },
+                            {
+                                "Height": 20.0,
+                                "Left": 117.0,
+                                "Top": 180.0,
+                                "Width": 12.0,
+                                "WordText": "\u3082"
+                            }
+                        ]
+                    },
+                    {
+                        "LineText": "\u30e9\u3066\u3001\u30d5\u30ab",
+                        "MaxHeight": 19.0,
+                        "MinTop": 739.0,
+                        "Words": [
+                            {
+                                "Height": 8.0,
+                                "Left": 680.0,
+                                "Top": 739.0,
+                                "Width": 10.0,
+                                "WordText": "\u30e9"
+                            },
+                            {
+                                "Height": 14.0,
+                                "Left": 676.0,
+                                "Top": 747.0,
+                                "Width": 18.0,
+                                "WordText": "\u3066"
+                            },
+                            {
+                                "Height": 6.0,
+                                "Left": 680.0,
+                                "Top": 765.0,
+                                "Width": 9.0,
+                                "WordText": "\u3001"
+                            },
+                            {
+                                "Height": 17.0,
+                                "Left": 678.0,
+                                "Top": 771.0,
+                                "Width": 13.0,
+                                "WordText": "\u30d5"
+                            },
+                            {
+                                "Height": 19.0,
+                                "Left": 675.0,
+                                "Top": 793.0,
+                                "Width": 14.0,
+                                "WordText": "\u30ab"
+                            }
+                        ]
+                    },
+                    {
+                        "LineText": "\u3046\u3093",
+                        "MaxHeight": 26.0,
+                        "MinTop": 795.0,
+                        "Words": [
+                            {
+                                "Height": 26.0,
+                                "Left": 110.0,
+                                "Top": 795.0,
+                                "Width": 15.0,
+                                "WordText": "\u3046"
+                            },
+                            {
+                                "Height": 25.0,
+                                "Left": 107.0,
+                                "Top": 825.0,
+                                "Width": 24.0,
+                                "WordText": "\u3093"
+                            }
+                        ]
+                    },
+                    {
+                        "LineText": "\u7b2cI\u8a71\u300c\u4e00\u7dd2\u306b\u5c45\u305f\u3044\u306e\u300d",
+                        "MaxHeight": 41.0,
+                        "MinTop": 1036.0,
+                        "Words": [
+                            {
+                                "Height": 41.0,
+                                "Left": 175.0,
+                                "Top": 1036.0,
+                                "Width": 40.0,
+                                "WordText": "\u7b2c"
+                            },
+                            {
+                                "Height": 32.0,
+                                "Left": 228.0,
+                                "Top": 1040.0,
+                                "Width": 16.0,
+                                "WordText": "I"
+                            },
+                            {
+                                "Height": 41.0,
+                                "Left": 258.0,
+                                "Top": 1036.0,
+                                "Width": 39.0,
+                                "WordText": "\u8a71"
+                            },
+                            {
+                                "Height": 39.0,
+                                "Left": 301.0,
+                                "Top": 1037.0,
+                                "Width": 15.0,
+                                "WordText": "\u300c"
+                            },
+                            {
+                                "Height": 7.0,
+                                "Left": 320.0,
+                                "Top": 1049.0,
+                                "Width": 38.0,
+                                "WordText": "\u4e00"
+                            },
+                            {
+                                "Height": 41.0,
+                                "Left": 360.0,
+                                "Top": 1036.0,
+                                "Width": 40.0,
+                                "WordText": "\u7dd2"
+                            },
+                            {
+                                "Height": 34.0,
+                                "Left": 405.0,
+                                "Top": 1039.0,
+                                "Width": 33.0,
+                                "WordText": "\u306b"
+                            },
+                            {
+                                "Height": 41.0,
+                                "Left": 442.0,
+                                "Top": 1036.0,
+                                "Width": 40.0,
+                                "WordText": "\u5c45"
+                            },
+                            {
+                                "Height": 36.0,
+                                "Left": 486.0,
+                                "Top": 1038.0,
+                                "Width": 35.0,
+                                "WordText": "\u305f"
+                            },
+                            {
+                                "Height": 29.0,
+                                "Left": 526.0,
+                                "Top": 1042.0,
+                                "Width": 36.0,
+                                "WordText": "\u3044"
+                            },
+                            {
+                                "Height": 30.0,
+                                "Left": 567.0,
+                                "Top": 1042.0,
+                                "Width": 36.0,
+                                "WordText": "\u306e"
+                            },
+                            {
+                                "Height": 38.0,
+                                "Left": 608.0,
+                                "Top": 1037.0,
+                                "Width": 15.0,
+                                "WordText": "\u300d"
+                            }
+                        ]
+                    },
+                    {
+                        "LineText": "\u25c6\u7b2c1.5\u8a71\u3082",
+                        "MaxHeight": 16.0,
+                        "MinTop": 1062.0,
+                        "Words": [
+                            {
+                                "Height": 15.0,
+                                "Left": 13.0,
+                                "Top": 1062.0,
+                                "Width": 15.0,
+                                "WordText": "\u25c6"
+                            },
+                            {
+                                "Height": 16.0,
+                                "Left": 29.0,
+                                "Top": 1062.0,
+                                "Width": 16.0,
+                                "WordText": "\u7b2c"
+                            },
+                            {
+                                "Height": 14.0,
+                                "Left": 47.0,
+                                "Top": 1062.0,
+                                "Width": 20.0,
+                                "WordText": "1.5"
+                            },
+                            {
+                                "Height": 16.0,
+                                "Left": 68.0,
+                                "Top": 1062.0,
+                                "Width": 16.0,
+                                "WordText": "\u8a71"
+                            },
+                            {
+                                "Height": 15.0,
+                                "Left": 86.0,
+                                "Top": 1062.0,
+                                "Width": 15.0,
+                                "WordText": "\u3082"
+                            }
+                        ]
+                    },
+                    {
+                        "LineText": "\u66f4\u65b0\u4e2d\u2033\u30fb",
+                        "MaxHeight": 17.0,
+                        "MinTop": 1082.0,
+                        "Words": [
+                            {
+                                "Height": 16.0,
+                                "Left": 29.0,
+                                "Top": 1083.0,
+                                "Width": 16.0,
+                                "WordText": "\u66f4"
+                            },
+                            {
+                                "Height": 16.0,
+                                "Left": 46.0,
+                                "Top": 1083.0,
+                                "Width": 16.0,
+                                "WordText": "\u65b0"
+                            },
+                            {
+                                "Height": 17.0,
+                                "Left": 63.0,
+                                "Top": 1082.0,
+                                "Width": 16.0,
+                                "WordText": "\u4e2d"
+                            },
+                            {
+                                "Height": 13.0,
+                                "Left": 81.0,
+                                "Top": 1084.0,
+                                "Width": 14.0,
+                                "WordText": "\u2033"
+                            },
+                            {
+                                "Height": 3.0,
+                                "Left": 95.0,
+                                "Top": 1091.0,
+                                "Width": 4.0,
+                                "WordText": "\u30fb"
+                            }
+                        ]
+                    }
+                ],
+                "Message": "Total lines: 10"
+            }
+        }
+    ],
+    "ProcessingTimeInMilliseconds": "765",
+    "SearchablePDFURL": "Searchable PDF not generated as it was not requested."
+}
