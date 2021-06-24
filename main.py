@@ -4,7 +4,7 @@ import requests, json, math, os
 import pytesseract
 import cv2
 
-from automate.main import get_json
+from automate import get_json
 from ocr import ocr
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
