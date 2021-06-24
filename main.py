@@ -1,11 +1,11 @@
-from PIL import Image, ImageDraw, ImageEnhance, ImageOps, ImageFilter
-from googletrans import Translator
+from PIL import Image, ImageDraw, ImageEnhance, ImageOps, ImageFont, ImageFilter
+from translatepy import Translator
 import requests, json, math, os
 import pytesseract
 import cv2
 
-# from automate.main import get_json, quit_driver
-from translate.locate_bubbles import get_blurbs
+
+from automate.main import get_json
 from img_map import img_map
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
@@ -97,62 +97,29 @@ with open("./format.json") as f:
 lines = data["ParsedResults"][0]["TextOverlay"]["Lines"]
 translator = Translator()
 
+font_path = "C:/Users/nathan-pham/Desktop/processing/modes/java/examples/Topics/Interaction/Tickle/data/SourceCodePro-Regular.ttf"
+font = ImageFont.truetype(font_path, 24)
+
+def get_wrapped_text(text, font, line_length):
+    lines = ['']
+    for word in text.split():
+        line = f'{lines[-1]} {word}'.strip()
+        if font.getlength(text) <= line_length:
+            lines[-1] = line
+        else:
+            lines.append(word)
+    return '\n'.join(lines)
+
 for line in lines:
     words = line["Words"]
 
     for word in words:
-        draw.rectangle([word["Left"], word["Top"], word["Left"] + word["Width"], word["Top"] + word["Height"]], outline="red", width=5)
+        draw.rectangle([word["Left"], word["Top"], word["Left"] + word["Width"], word["Top"] + word["Height"]], outline="black", width=2)
 
-    translated = translator.translate(line["LineText"])
-    text = translated.text
+    text = line["LineText"]
     
-    draw.text([ words[0]["Left"], words[0]["Top"] ], fill="white", text=text.encode("ascii", "ignore"), stroke_width="red", stroke_fill="red")
-
-# >>> 
-# >>> translator = Translator()
-# >>> translator.translate('안녕하세요.')
-
+    translated = translator.translate(text, "English")
+    print(translated)
+    draw.text([words[0]["Left"], words[0]["Top"]], get_wrapped_text(str(translated), font, 100), (20, 220, 20), font=font)
 
 img.show()
-"""
-                        "LineText": "\u66f4\u65b0\u4e2d\u2033\u30fb",
-                        "MaxHeight": 17.0,
-                        "MinTop": 1082.0,
-                        "Words": [
-                            {
-                                "Height": 16.0,
-                                "Left": 29.0,
-                                "Top": 1083.0,
-                                "Width": 16.0,
-                                "WordText": "\u66f4"
-                            },
-                            {
-                                "Height": 16.0,
-                                "Left": 46.0,
-                                "Top": 1083.0,
-                                "Width": 16.0,
-                                "WordText": "\u65b0"
-                            },
-                            {
-                                "Height": 17.0,
-                                "Left": 63.0,
-                                "Top": 1082.0,
-                                "Width": 16.0,
-                                "WordText": "\u4e2d"
-                            },
-                            {
-                                "Height": 13.0,
-                                "Left": 81.0,
-                                "Top": 1084.0,
-                                "Width": 14.0,
-                                "WordText": "\u2033"
-                            },
-                            {
-                                "Height": 3.0,
-                                "Left": 95.0,
-                                "Top": 1091.0,
-                                "Width": 4.0,
-                                "WordText": "\u30fb"
-                            }
-                        ]
-"""
