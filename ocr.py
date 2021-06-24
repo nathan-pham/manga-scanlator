@@ -84,8 +84,11 @@ def extract_text(block):
     return result
 
 def get_blocks(res):
-    return res["responses"][0]["fullTextAnnotation"]["pages"][0]["blocks"]
-
+    try:
+        return res["responses"][0]["fullTextAnnotation"]["pages"][0]["blocks"]
+    except:
+        return []
+        
 def translate(japanese):
     return str(translator.translate(japanese, "English"))
 

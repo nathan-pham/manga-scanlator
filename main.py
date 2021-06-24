@@ -9,15 +9,27 @@ from automate import get_json
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 font = ImageFont.truetype("arial", 12)
 
-def wrap_text(text, font=font, line_length=100):
-    lines = ['']
-    for word in text.split():
-        line = f'{lines[-1]} {word}'.strip()
-        if font.getlength(text) <= line_length:
-            lines[-1] = line
+def draw_word_wrap(draw, text, xpos=0, ypos=0, max_width=130, fill=(250,0,0), font=font):
+    text_size_x, text_size_y = draw.textsize(text, font=font)
+    remaining = max_width
+    space_width, space_height = draw.textsize(' ', font=font)
+    output_text = []
+    for word in text.split(None):
+        word_width, word_height = draw.textsize(word, font=font)
+        if word_width + space_width > remaining:
+            output_text.append(word)
+            remaining = max_width - word_width
         else:
-            lines.append(word)
-    return '\n'.join(lines)
+            if not output_text:
+                output_text.append(word)
+            else:
+                output = output_text.pop()
+                output += ' %s' % word
+                output_text.append(output)
+            remaining = remaining - (word_width + space_width)
+    for text in output_text:
+        draw.text((xpos, ypos), text, font=font, fill=fill)
+        ypos += text_size_y
 
 def purge_imgs(mydir="./images"):
     for f in os.listdir(mydir):
@@ -94,7 +106,17 @@ def convert(filename, img):
 
         draw.rectangle((new_bbox[0] + new_bbox[-2]), fill=(255, 255, 255))
 
-    
+    blocks = get_blocks(content)
+    bubbles = make_all_bubbles(blocks)
+
+    for english, bbox in bubbles:
+        x, y, width, height = bbox
+        x = x + width / 2
+        y = y + height / 2
+
+        draw_word_wrap(draw, english, xpos=x, ypos=x, max_width=width)
+        
+        # def draw_word_wrap(draw, text, xpos=0, ypos=0, max_width=130, fill=(250,0,0), font=font):
         # translated = str(translator.translate(text, "English"))
         # texts.append((new_bbox[1], wrap_text(translated)))
 
@@ -110,16 +132,16 @@ def export_pdf(in_url, start_end=None):
     manga_json = get_json(in_url)
 
     pages = manga_json["readableProduct"]["pageStructure"]["pages"]
-    n_pages = len(pages)
+    pages = list(filter(lambda page: page.get("type", "other") == "main", pages))
     img_list = []
 
     if start_end is not None:
         start, end = start_end
         pages = pages[start:end]
 
-    for i in range(n_pages):
+    for i in range(len((pages))):
         page = pages[i]
-        print(f"page: {i}/{n_pages}")
+        print(f"page: {i + 1}/{len(pages)}")
         if page.get("type", "other") == "main":            
             src = page.get("src")
 
@@ -131,4 +153,4 @@ def export_pdf(in_url, start_end=None):
     img1.save(out_pdf, save_all=True, append_images=img_list)
     return out_pdf
 
-export_pdf("https://tonarinoyj.jp/episode/3269754496359036797")
+export_pdf("https://tonarinoyj.jp/episode/3269632237330300439", (0, 1))
