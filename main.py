@@ -13,19 +13,14 @@ def text_wrap(text, draw, max_width, max_height, font=font):
     lines = [[]]
     words = text.split()
     for word in words:
-        # try putting this word in last line then measure
         lines[-1].append(word)
         (w,h) = draw.multiline_textsize('\n'.join([' '.join(line) for line in lines]), font=font)
-        if w > max_width: # too wide
-            # take it back out, put it on the next line, then measure again
+        if w > max_width:
             lines.append([lines[-1].pop()])
             (w,h) = draw.multiline_textsize('\n'.join([' '.join(line) for line in lines]), font=font)
-            if h > max_height: # too high now, cannot fit this word in, so take out - add ellipses
+            if h > max_height:
                 lines.pop()
-                # try adding ellipses to last word fitting (i.e. without a space)
                 lines[-1][-1] += '...'
-                # keep checking that this doesn't make the textbox too wide, 
-                # if so, cycle through previous words until the ellipses can fit
                 while draw.multiline_textsize('\n'.join([' '.join(line) for line in lines]),font=font)[0] > max_width:
                     lines[-1].pop()
                     lines[-1][-1] += '...'
@@ -102,8 +97,6 @@ def convert(filename, img):
     bboxes = [bubble[1][2] * bubble[1][3] for bubble in bubbles]
     max_area = max(bboxes)
     min_area = min(bboxes)
-
-    print(max_area, min_area)
     
     for line in lines:
         bbox, text = line["boundingBox"], line["text"]
@@ -153,4 +146,4 @@ def export_pdf(in_url, start_end=None):
     img1.save(out_pdf, save_all=True, append_images=img_list)
     return out_pdf
 
-export_pdf("https://tonarinoyj.jp/episode/3269632237330300439", (1, 2))
+export_pdf("https://tonarinoyj.jp/episode/3269632237330300439")
