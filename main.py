@@ -11,8 +11,7 @@ from ocr import ocr
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 translator = Translator()
 
-font_path = "C:/Users/nathan-pham/Desktop/processing/modes/java/examples/Topics/Interaction/Tickle/data/SourceCodePro-Regular.ttf"
-font = ImageFont.truetype(font_path, 12)
+font = ImageFont.truetype("arial", 12)
 
 def wrap_text(text, font=font, line_length=100):
     lines = ['']
@@ -82,7 +81,7 @@ def unscramble(filename, show=False, download=False):
 
     return new_img
 
-def export_pdf(in_url, out_pdf="./manga.pdf"):
+def export_pdf(in_url):
     purge_imgs()
     print("purged images")
     
@@ -114,17 +113,22 @@ def export_pdf(in_url, out_pdf="./manga.pdf"):
                     if i % 2 == 0:
                         new_bbox.append((bbox[i], bbox[i + 1]))    
 
-                draw.rectangle((new_bbox[0] + new_bbox[-2]), fill=(255, 255, 255))
+                # draw.rectangle((new_bbox[0] + new_bbox[-2]), fill=(255, 255, 255))
 
                 translated = str(translator.translate(text, "English"))
-                draw.text(new_bbox[0], wrap_text(translated), (0, 0, 0), font=font, spacing=-1)
+                draw.text(new_bbox[1], wrap_text(translated), (255, 0, 0), font=font, spacing=-1)
 
+            new_img.show()
+            import sys
+            sys.exit()
             img_list.append(new_img)
 
     img1 = img_list.pop(0)
+
+    out_pdf = f"{in_url.split('/').pop()}.png"
+
     img1.save(out_pdf, save_all=True, append_images=img_list)
     print("exported pdf", out_pdf)
-
 
     return out_pdf
 
