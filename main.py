@@ -7,25 +7,27 @@ from ocr import ocr, hacked_ocr, get_blocks, make_all_bubbles
 from automate import get_json
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-font = ImageFont.truetype("arial", 16)
+font = ImageFont.truetype("arial", 18)
 
 def text_wrap(text, draw, max_width, max_height, font=font):
     lines = [[]]
     words = text.split()
+    recommended_font = font
+    font_size = 18
+
     for word in words:
         lines[-1].append(word)
-        (w,h) = draw.multiline_textsize('\n'.join([' '.join(line) for line in lines]), font=font)
+        (w,h) = draw.multiline_textsize('\n'.join([' '.join(line) for line in lines]), font=recommended_font)
+        
         if w > max_width:
             lines.append([lines[-1].pop()])
-            (w,h) = draw.multiline_textsize('\n'.join([' '.join(line) for line in lines]), font=font)
+            (w,h) = draw.multiline_textsize('\n'.join([' '.join(line) for line in lines]), font=recommended_font)
+
             if h > max_height:
-                lines.pop()
-                lines[-1][-1] += '...'
-                while draw.multiline_textsize('\n'.join([' '.join(line) for line in lines]),font=font)[0] > max_width:
-                    lines[-1].pop()
-                    lines[-1][-1] += '...'
-                break
-    return '\n'.join([' '.join(line) for line in lines])
+                font_size -= 2
+                recommended_font = ImageFont.truetype("arial", font_size)
+
+    return '\n'.join([' '.join(line) for line in lines]), recommended_font
 
 
 def purge_imgs(mydir="./images"):
@@ -95,8 +97,6 @@ def convert(filename, img):
     bubbles = make_all_bubbles(blocks)
 
     bboxes = [bubble[1][2] * bubble[1][3] for bubble in bubbles]
-    max_area = max(bboxes)
-    min_area = min(bboxes)
     
     for line in lines:
         bbox, text = line["boundingBox"], line["text"]
@@ -107,15 +107,14 @@ def convert(filename, img):
                 new_bbox.append((bbox[i], bbox[i + 1]))
 
         rect_coords = (new_bbox[0] + new_bbox[-2])
-        x1, y1, x2, y2 = rect_coords
-        area = (x2 - x1) * (y2 - y1)
-        if area < max_area and area > min_area:
-            draw.rectangle(rect_coords, fill=(255, 255, 255))
+        # x1, y1, x2, y2 = rect_coords
+        # area = (x2 - x1) * (y2 - y1)
+        draw.rectangle(rect_coords, fill=(255, 255, 255))
 
     for english, bbox in bubbles:
         x, y, width, height = bbox
-        wrapped = text_wrap(english, draw, width, height)
-        draw.text((x, y), wrapped, font=font, fill=(0, 0, 0))
+        wrapped, recommended_font = text_wrap(english, draw, width, height)
+        draw.text((x, y), wrapped, font=recommended_font, fill=(0, 0, 0))
     return img
 
 def export_pdf(in_url, start_end=None):
