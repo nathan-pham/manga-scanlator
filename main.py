@@ -97,7 +97,7 @@ def export_pdf(in_url, start_end=None):
     img_list = []
 
     for page in pages:
-        if page.get("type", "other") == "main":
+        if page.get("type", "other") == "main":            
             src = page.get("src")
 
             filename = download_img(src)
@@ -110,6 +110,7 @@ def export_pdf(in_url, start_end=None):
 
             draw = ImageDraw.Draw(new_img)
 
+            texts = []
             for line in lines:
                 bbox, text = line["boundingBox"], line["text"]
                 new_bbox = []
@@ -118,18 +119,20 @@ def export_pdf(in_url, start_end=None):
                     if i % 2 == 0:
                         new_bbox.append((bbox[i], bbox[i + 1]))    
 
-                # draw.rectangle((new_bbox[0] + new_bbox[-2]), fill=(255, 255, 255))
+                draw.rectangle((new_bbox[0] + new_bbox[-2]), fill=(255, 255, 255))
 
                 translated = str(translator.translate(text, "English"))
-                draw.text(new_bbox[1], wrap_text(translated), (255, 0, 0), font=font, spacing=-1)
+                texts.append((new_bbox[1], wrap_text(translated)))
 
             img_list.append(new_img)
+
+            for xy, text in texts:
+                draw.text(xy, text, (255, 0, 0), font=font, spacing=-1)
 
     img1 = img_list.pop(0)
     
     img1.save(out_pdf, save_all=True, append_images=img_list)
     print("exported pdf", out_pdf)
-
     return out_pdf
 
-export_pdf("https://tonarinoyj.jp/episode/3269632237330300439")
+export_pdf("https://tonarinoyj.jp/episode/3269632237330300439", (0, 3))
