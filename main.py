@@ -26,7 +26,6 @@ def purge_imgs(mydir="./images"):
     for f in os.listdir(mydir):
         os.remove(os.path.join(mydir, f))
 
-
 def download_img(url):
     filename = f"./images/{url.split('/').pop()}.jpeg"
 
@@ -80,6 +79,36 @@ def unscramble(filename, show=False, download=False):
 
     return new_img
 
+def convert(filename, img):
+    data = json.loads(ocr(filename))
+
+    try:
+        lines = data["analyzeResult"]["readResults"][0]["lines"]
+    except:
+        print("failed ocr for", filename)
+        lines = []
+
+    draw = ImageDraw.Draw(img)
+
+    texts = []
+    for line in lines:
+        bbox, text = line["boundingBox"], line["text"]
+        new_bbox = []
+
+        for i in range(len(bbox)):
+            if i % 2 == 0:
+                new_bbox.append((bbox[i], bbox[i + 1]))    
+
+        draw.rectangle((new_bbox[0] + new_bbox[-2]), fill=(255, 255, 255))
+
+        translated = str(translator.translate(text, "English"))
+        texts.append((new_bbox[1], wrap_text(translated)))
+
+    for xy, text in texts:
+        draw.text(xy, text, (255, 0, 0), font=font, spacing=-1)
+
+    return img
+
 def export_pdf(in_url, start_end=None):
     out_pdf = f"{in_url.split('/').pop()}.pdf"
 
@@ -96,38 +125,17 @@ def export_pdf(in_url, start_end=None):
 
     img_list = []
 
+    print(len(pages), "pages")
+
     for page in pages:
         if page.get("type", "other") == "main":            
             src = page.get("src")
 
             filename = download_img(src)
             new_img = unscramble(filename, download=True)
-
             print("rewrote with unscrambled file")
 
-            data = json.loads(ocr(filename))
-            lines = data["analyzeResult"]["readResults"][0]["lines"]
-
-            draw = ImageDraw.Draw(new_img)
-
-            texts = []
-            for line in lines:
-                bbox, text = line["boundingBox"], line["text"]
-                new_bbox = []
-
-                for i in range(len(bbox)):
-                    if i % 2 == 0:
-                        new_bbox.append((bbox[i], bbox[i + 1]))    
-
-                draw.rectangle((new_bbox[0] + new_bbox[-2]), fill=(255, 255, 255))
-
-                translated = str(translator.translate(text, "English"))
-                texts.append((new_bbox[1], wrap_text(translated)))
-
-            img_list.append(new_img)
-
-            for xy, text in texts:
-                draw.text(xy, text, (255, 0, 0), font=font, spacing=-1)
+            img_list.append(convert(filename, new_img))
 
     img1 = img_list.pop(0)
     
@@ -135,4 +143,4 @@ def export_pdf(in_url, start_end=None):
     print("exported pdf", out_pdf)
     return out_pdf
 
-export_pdf("https://tonarinoyj.jp/episode/3269632237330300439", (0, 3))
+export_pdf("https://tonarinoyj.jp/episode/3269754496359036797")
