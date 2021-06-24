@@ -88,7 +88,7 @@ def export_pdf(in_url):
     manga_json = get_json(in_url)
     print("retrieved manga api")
 
-    pages = manga_json["readableProduct"]["pageStructure"]["pages"]
+    pages = manga_json["readableProduct"]["pageStructure"]["pages"][:3]
     img_list = []
 
     for page in pages:
@@ -118,9 +118,6 @@ def export_pdf(in_url):
                 translated = str(translator.translate(text, "English"))
                 draw.text(new_bbox[1], wrap_text(translated), (255, 0, 0), font=font, spacing=-1)
 
-            new_img.show()
-            import sys
-            sys.exit()
             img_list.append(new_img)
 
     img1 = img_list.pop(0)
