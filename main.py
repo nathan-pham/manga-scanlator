@@ -87,20 +87,24 @@ def unscramble(filename, show=False, download=False):
     return new_img
 
 def convert(filename, img):
-    # data = ocr(filename)
+    data = ocr(filename)
     content = hacked_ocr(filename)
 
-    # try:
-    #     lines = data["analyzeResult"]["readResults"][0]["lines"]
-    # except:
-    #     lines = []
-
-    lines = []
+    try:
+        lines = data["analyzeResult"]["readResults"][0]["lines"]
+    except:
+        lines = []
 
     draw = ImageDraw.Draw(img)
     blocks = get_blocks(content)
     bubbles = make_all_bubbles(blocks)
 
+    bboxes = [bubble[1][2] * bubble[1][3] for bubble in bubbles]
+    max_area = max(bboxes)
+    min_area = min(bboxes)
+
+    print(max_area, min_area)
+    
     for line in lines:
         bbox, text = line["boundingBox"], line["text"]
         new_bbox = []
@@ -109,17 +113,14 @@ def convert(filename, img):
             if i % 2 == 0:
                 new_bbox.append((bbox[i], bbox[i + 1]))
 
-        x, y, width, height = (new_bbox[0] + new_bbox[-2])
-        
-        # draw.rectangle((new_bbox[0] + new_bbox[-2]), fill=(255, 255, 255))
+        rect_coords = (new_bbox[0] + new_bbox[-2])
+        x1, y1, x2, y2 = rect_coords
+        area = (x2 - x1) * (y2 - y1)
+        if area < max_area and area > min_area:
+            draw.rectangle(rect_coords, fill=(255, 255, 255))
 
     for english, bbox in bubbles:
         x, y, width, height = bbox
-        draw.rectangle((x, y, x + width, y + height), fill=(255, 255, 255))
-        # 22606
-        # x = x + width / 2
-        # y = y + height / 2
-
         wrapped = text_wrap(english, draw, width, height)
         draw.text((x, y), wrapped, font=font, fill=(0, 0, 0))
     return img
