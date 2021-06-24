@@ -24,7 +24,7 @@ def ocr(filename):
 
         result_url = resource.headers.get('Operation-Location')
         result = requests.get(result_url,headers = {"Ocp-Apim-Subscription-Key":SUBSCRIPTION_KEY})
-        return result.text
+        return result.json()
 
 def build_request(content):
     return {
@@ -103,11 +103,18 @@ def make_all_bubbles(blocks):
 # with open("./format", "w") as f:
 #     f.write(json.dumps(hacked_ocr("./bruh.jpeg"), indent=4, sort_keys=True))
 
-with open("./format.json", "r") as f:
-    content = json.loads(f.read())
+# with open("./format.json", "r") as f:
+#     content = json.loads(f.read())
 
-    blocks = get_blocks(content)
-    bubbles = make_all_bubbles(blocks)
+#     blocks = get_blocks(content)
+#     bubbles = make_all_bubbles(blocks)
 
-    print(json.dumps(bubbles, indent=4, sort_keys=True))
+#     print(json.dumps(bubbles, indent=4, sort_keys=True))
 
+"""
+    x: bubble.rect.x + bubble.rect.width / 2,
+    y: bubble.rect.y + bubble.rect.height / 2,
+    width: bubble.rect.width,
+    height: bubble.rect.height,
+
+"""

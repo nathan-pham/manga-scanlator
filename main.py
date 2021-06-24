@@ -1,15 +1,12 @@
 from PIL import Image, ImageDraw, ImageEnhance, ImageOps, ImageFont, ImageFilter
-from translatepy import Translator
 import requests, json, math, os
 import pytesseract
 import cv2
 
+from ocr import ocr, hacked_ocr, get_blocks, make_all_bubbles
 from automate import get_json
-from ocr import ocr
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-translator = Translator()
-
 font = ImageFont.truetype("arial", 12)
 
 def wrap_text(text, font=font, line_length=100):
@@ -30,7 +27,6 @@ def download_img(url):
     filename = f"./images/{url.split('/').pop()}.jpeg"
 
     if os.path.isfile(filename):
-        print("already downloaded", filename)
         return filename
 
     res = requests.get(url, stream=True)
@@ -38,9 +34,6 @@ def download_img(url):
         with open(filename, "wb") as handle:
             for chunk in res:
                 handle.write(chunk)
-        print("successfully downloaded", filename)
-    else:
-        print("failed to download", filename)
    
     return filename
 
@@ -80,17 +73,17 @@ def unscramble(filename, show=False, download=False):
     return new_img
 
 def convert(filename, img):
-    data = json.loads(ocr(filename))
+    data = ocr(filename)
+    content = hacked_ocr(filename)
+    texts = []
 
     try:
         lines = data["analyzeResult"]["readResults"][0]["lines"]
     except:
-        print("failed ocr for", filename)
         lines = []
 
     draw = ImageDraw.Draw(img)
 
-    texts = []
     for line in lines:
         bbox, text = line["boundingBox"], line["text"]
         new_bbox = []
@@ -101,11 +94,12 @@ def convert(filename, img):
 
         draw.rectangle((new_bbox[0] + new_bbox[-2]), fill=(255, 255, 255))
 
-        translated = str(translator.translate(text, "English"))
-        texts.append((new_bbox[1], wrap_text(translated)))
+    
+        # translated = str(translator.translate(text, "English"))
+        # texts.append((new_bbox[1], wrap_text(translated)))
 
-    for xy, text in texts:
-        draw.text(xy, text, (255, 0, 0), font=font, spacing=-1)
+    # for xy, text in texts:
+    #     draw.text(xy, text, (255, 0, 0), font=font, spacing=-1)
 
     return img
 
@@ -113,34 +107,28 @@ def export_pdf(in_url, start_end=None):
     out_pdf = f"{in_url.split('/').pop()}.pdf"
 
     purge_imgs()
-    print("purged images")
-    
     manga_json = get_json(in_url)
-    print("retrieved manga api")
 
     pages = manga_json["readableProduct"]["pageStructure"]["pages"]
+    n_pages = len(pages)
+    img_list = []
+
     if start_end is not None:
         start, end = start_end
         pages = pages[start:end]
 
-    img_list = []
-
-    print(len(pages), "pages")
-
-    for page in pages:
+    for i in range(n_pages):
+        page = pages[i]
+        print(f"page: {i}/{n_pages}")
         if page.get("type", "other") == "main":            
             src = page.get("src")
 
             filename = download_img(src)
             new_img = unscramble(filename, download=True)
-            print("rewrote with unscrambled file")
-
             img_list.append(convert(filename, new_img))
 
     img1 = img_list.pop(0)
-    
     img1.save(out_pdf, save_all=True, append_images=img_list)
-    print("exported pdf", out_pdf)
     return out_pdf
 
 export_pdf("https://tonarinoyj.jp/episode/3269754496359036797")
