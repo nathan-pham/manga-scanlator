@@ -7,29 +7,31 @@ from ocr import ocr, hacked_ocr, get_blocks, make_all_bubbles
 from automate import get_json
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-font = ImageFont.truetype("arial", 12)
+font = ImageFont.truetype("arial", 16)
 
-def draw_word_wrap(draw, text, xpos=0, ypos=0, max_width=130, fill=(250,0,0), font=font):
-    text_size_x, text_size_y = draw.textsize(text, font=font)
-    remaining = max_width
-    space_width, space_height = draw.textsize(' ', font=font)
-    output_text = []
-    for word in text.split(None):
-        word_width, word_height = draw.textsize(word, font=font)
-        if word_width + space_width > remaining:
-            output_text.append(word)
-            remaining = max_width - word_width
-        else:
-            if not output_text:
-                output_text.append(word)
-            else:
-                output = output_text.pop()
-                output += ' %s' % word
-                output_text.append(output)
-            remaining = remaining - (word_width + space_width)
-    for text in output_text:
-        draw.text((xpos, ypos), text, font=font, fill=fill)
-        ypos += text_size_y
+def text_wrap(text, draw, max_width, max_height, font=font):
+    lines = [[]]
+    words = text.split()
+    for word in words:
+        # try putting this word in last line then measure
+        lines[-1].append(word)
+        (w,h) = draw.multiline_textsize('\n'.join([' '.join(line) for line in lines]), font=font)
+        if w > max_width: # too wide
+            # take it back out, put it on the next line, then measure again
+            lines.append([lines[-1].pop()])
+            (w,h) = draw.multiline_textsize('\n'.join([' '.join(line) for line in lines]), font=font)
+            if h > max_height: # too high now, cannot fit this word in, so take out - add ellipses
+                lines.pop()
+                # try adding ellipses to last word fitting (i.e. without a space)
+                lines[-1][-1] += '...'
+                # keep checking that this doesn't make the textbox too wide, 
+                # if so, cycle through previous words until the ellipses can fit
+                while draw.multiline_textsize('\n'.join([' '.join(line) for line in lines]),font=font)[0] > max_width:
+                    lines[-1].pop()
+                    lines[-1][-1] += '...'
+                break
+    return '\n'.join([' '.join(line) for line in lines])
+
 
 def purge_imgs(mydir="./images"):
     for f in os.listdir(mydir):
@@ -85,16 +87,19 @@ def unscramble(filename, show=False, download=False):
     return new_img
 
 def convert(filename, img):
-    data = ocr(filename)
+    # data = ocr(filename)
     content = hacked_ocr(filename)
-    texts = []
 
-    try:
-        lines = data["analyzeResult"]["readResults"][0]["lines"]
-    except:
-        lines = []
+    # try:
+    #     lines = data["analyzeResult"]["readResults"][0]["lines"]
+    # except:
+    #     lines = []
+
+    lines = []
 
     draw = ImageDraw.Draw(img)
+    blocks = get_blocks(content)
+    bubbles = make_all_bubbles(blocks)
 
     for line in lines:
         bbox, text = line["boundingBox"], line["text"]
@@ -102,27 +107,21 @@ def convert(filename, img):
 
         for i in range(len(bbox)):
             if i % 2 == 0:
-                new_bbox.append((bbox[i], bbox[i + 1]))    
+                new_bbox.append((bbox[i], bbox[i + 1]))
 
-        draw.rectangle((new_bbox[0] + new_bbox[-2]), fill=(255, 255, 255))
-
-    blocks = get_blocks(content)
-    bubbles = make_all_bubbles(blocks)
+        x, y, width, height = (new_bbox[0] + new_bbox[-2])
+        
+        # draw.rectangle((new_bbox[0] + new_bbox[-2]), fill=(255, 255, 255))
 
     for english, bbox in bubbles:
         x, y, width, height = bbox
-        x = x + width / 2
-        y = y + height / 2
+        draw.rectangle((x, y, x + width, y + height), fill=(255, 255, 255))
+        # 22606
+        # x = x + width / 2
+        # y = y + height / 2
 
-        draw_word_wrap(draw, english, xpos=x, ypos=x, max_width=width)
-        
-        # def draw_word_wrap(draw, text, xpos=0, ypos=0, max_width=130, fill=(250,0,0), font=font):
-        # translated = str(translator.translate(text, "English"))
-        # texts.append((new_bbox[1], wrap_text(translated)))
-
-    # for xy, text in texts:
-    #     draw.text(xy, text, (255, 0, 0), font=font, spacing=-1)
-
+        wrapped = text_wrap(english, draw, width, height)
+        draw.text((x, y), wrapped, font=font, fill=(0, 0, 0))
     return img
 
 def export_pdf(in_url, start_end=None):
@@ -153,4 +152,4 @@ def export_pdf(in_url, start_end=None):
     img1.save(out_pdf, save_all=True, append_images=img_list)
     return out_pdf
 
-export_pdf("https://tonarinoyj.jp/episode/3269632237330300439", (0, 1))
+export_pdf("https://tonarinoyj.jp/episode/3269632237330300439", (1, 2))

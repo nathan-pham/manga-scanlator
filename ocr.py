@@ -88,7 +88,7 @@ def get_blocks(res):
         return res["responses"][0]["fullTextAnnotation"]["pages"][0]["blocks"]
     except:
         return []
-        
+
 def translate(japanese):
     return str(translator.translate(japanese, "English"))
 
@@ -119,5 +119,4 @@ def make_all_bubbles(blocks):
     y: bubble.rect.y + bubble.rect.height / 2,
     width: bubble.rect.width,
     height: bubble.rect.height,
-
 """
