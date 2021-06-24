@@ -2,15 +2,17 @@ from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from azure.cognitiveservices.vision.computervision.models import OperationStatusCodes
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
+from translatepy import Translator
+from dotenv import load_dotenv
 
 import requests, base64, json, time, os
 
-from dotenv import load_dotenv
 load_dotenv()
 
 SUBSCRIPTION_KEY = os.getenv("SUBSCRIPTION_KEY")
 ENDPOINT = "https://manga-translator.cognitiveservices.azure.com/"
-OCR_URL = f"https://vision.googleapis.com/v1/images:annotate?key={os.getenv("OCR_KEY")}"
+OCR_URL = f"https://vision.googleapis.com/v1/images:annotate?key={os.getenv('OCR_KEY')}"
+translator = Translator()
 
 computervision_client = ComputerVisionClient(ENDPOINT, CognitiveServicesCredentials(SUBSCRIPTION_KEY))
 
@@ -54,5 +56,58 @@ def hacked_ocr(filename):
 
     return res.json()
 
-with open("./format.json", "w") as f:
-    f.write(json.dumps(hacked_ocr("./bruh.jpeg"), indent=4, sort_keys=True))
+def rect(bbox):
+    def helper(axis, func):
+        result = bbox["vertices"][0][axis]
+
+        for i in range(1, 4):
+            current = bbox["vertices"][i][axis]
+            result = func(result, current)
+
+        return result
+    
+    min_x = helper('x', min)
+    min_y = helper('y', min)
+    max_x = helper('x', max)
+    max_y = helper('y', max)
+
+    return min_x - 20, min_y, max_x - min_x + 40, max_y - min_y
+
+def extract_text(block):
+    result = ""
+
+    for paragraph in block["paragraphs"]:
+        for word in paragraph["words"]:
+            for symbol in word["symbols"]:
+                result += symbol["text"]
+
+    return result
+
+def get_blocks(res):
+    return res["responses"][0]["fullTextAnnotation"]["pages"][0]["blocks"]
+
+def translate(japanese):
+    return str(translator.translate(japanese, "English"))
+
+def make_all_bubbles(blocks):
+    bubbles = []
+
+    for block in blocks:
+        _rect = rect(block["boundingBox"])
+        japanese = extract_text(block)
+        english = translate(japanese)
+        bubbles.append((english, _rect))
+
+    return bubbles
+
+# with open("./format", "w") as f:
+#     f.write(json.dumps(hacked_ocr("./bruh.jpeg"), indent=4, sort_keys=True))
+
+with open("./format.json", "r") as f:
+    content = json.loads(f.read())
+
+    blocks = get_blocks(content)
+    bubbles = make_all_bubbles(blocks)
+
+    print(json.dumps(bubbles, indent=4, sort_keys=True))
+
