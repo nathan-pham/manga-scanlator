@@ -5,7 +5,6 @@ import pytesseract
 import cv2
 
 from automate.main import get_json
-from img_map import img_map
 from ocr import ocr
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
@@ -81,14 +80,20 @@ def unscramble(filename, show=False, download=False):
 
     return new_img
 
-def export_pdf(in_url):
+def export_pdf(in_url, start_end=None):
+    out_pdf = f"{in_url.split('/').pop()}.pdf"
+
     purge_imgs()
     print("purged images")
     
     manga_json = get_json(in_url)
     print("retrieved manga api")
 
-    pages = manga_json["readableProduct"]["pageStructure"]["pages"][:3]
+    pages = manga_json["readableProduct"]["pageStructure"]["pages"]
+    if start_end is not None:
+        start, end = start_end
+        pages = pages[start:end]
+
     img_list = []
 
     for page in pages:
@@ -121,9 +126,7 @@ def export_pdf(in_url):
             img_list.append(new_img)
 
     img1 = img_list.pop(0)
-
-    out_pdf = f"{in_url.split('/').pop()}.png"
-
+    
     img1.save(out_pdf, save_all=True, append_images=img_list)
     print("exported pdf", out_pdf)
 
