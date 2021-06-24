@@ -1,511 +1,1212 @@
 {
-    "IsErroredOnProcessing": false,
-    "OCRExitCode": 1,
-    "ParsedResults": [
-        {
-            "ErrorDetails": "",
-            "ErrorMessage": "",
-            "FileParseExitCode": 1,
-            "ParsedText": "\u305d\u3046\u3044\u3048\u3070\r\n\u52e2\u3044\u3067\u624b\u3092\u63e1\u3063\u3066\r\n\u3057\u307e\u3063\u305f\u304c\r\n\u5acc\u3060\u3063\u305f\u3089\r\n\u96e2\u3057\u3066\u3082\u3089\u3063\u3066\u3082\r\n\u30e9\u3066\u3001\u30d5\u30ab\r\n\u3046\u3093\r\n\u7b2cI\u8a71\u300c\u4e00\u7dd2\u306b\u5c45\u305f\u3044\u306e\u300d\r\n\u25c6\u7b2c1.5\u8a71\u3082\r\n\u66f4\u65b0\u4e2d\u2033\u30fb\r\n",
-            "TextOrientation": "0",
-            "TextOverlay": {
-                "HasOverlay": true,
-                "Lines": [
+    "analyzeResult": {
+        "modelVersion": "2021-04-12",
+        "readResults": [
+            {
+                "angle": 0,
+                "height": 1122,
+                "lines": [
                     {
-                        "LineText": "\u305d\u3046\u3044\u3048\u3070",
-                        "MaxHeight": 20.0,
-                        "MinTop": 21.0,
-                        "Words": [
+                        "boundingBox": [
+                            112,
+                            20,
+                            135,
+                            20,
+                            135,
+                            202,
+                            112,
+                            202
+                        ],
+                        "text": "\u96e2\u3057\u3066\u3082\u3089\u3063\u3066\u3082",
+                        "words": [
                             {
-                                "Height": 20.0,
-                                "Left": 657.0,
-                                "Top": 21.0,
-                                "Width": 15.0,
-                                "WordText": "\u305d"
+                                "boundingBox": [
+                                    112,
+                                    25,
+                                    135,
+                                    26,
+                                    135,
+                                    44,
+                                    112,
+                                    43
+                                ],
+                                "confidence": 0.995,
+                                "text": "\u96e2"
                             },
                             {
-                                "Height": 20.0,
-                                "Left": 659.0,
-                                "Top": 44.0,
-                                "Width": 11.0,
-                                "WordText": "\u3046"
+                                "boundingBox": [
+                                    112,
+                                    45,
+                                    135,
+                                    45,
+                                    135,
+                                    63,
+                                    112,
+                                    62
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u3057"
                             },
                             {
-                                "Height": 14.0,
-                                "Left": 656.0,
-                                "Top": 69.0,
-                                "Width": 17.0,
-                                "WordText": "\u3044"
+                                "boundingBox": [
+                                    112,
+                                    67,
+                                    135,
+                                    68,
+                                    135,
+                                    85,
+                                    113,
+                                    85
+                                ],
+                                "confidence": 0.997,
+                                "text": "\u3066"
                             },
                             {
-                                "Height": 18.0,
-                                "Left": 658.0,
-                                "Top": 89.0,
-                                "Width": 14.0,
-                                "WordText": "\u3048"
+                                "boundingBox": [
+                                    113,
+                                    92,
+                                    135,
+                                    93,
+                                    135,
+                                    110,
+                                    113,
+                                    109
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u3082"
                             },
                             {
-                                "Height": 19.0,
-                                "Left": 656.0,
-                                "Top": 111.0,
-                                "Width": 20.0,
-                                "WordText": "\u3070"
+                                "boundingBox": [
+                                    113,
+                                    113,
+                                    135,
+                                    114,
+                                    134,
+                                    131,
+                                    113,
+                                    130
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u3089"
+                            },
+                            {
+                                "boundingBox": [
+                                    113,
+                                    135,
+                                    134,
+                                    135,
+                                    134,
+                                    152,
+                                    113,
+                                    152
+                                ],
+                                "confidence": 0.993,
+                                "text": "\u3063"
+                            },
+                            {
+                                "boundingBox": [
+                                    113,
+                                    156,
+                                    134,
+                                    157,
+                                    134,
+                                    174,
+                                    113,
+                                    173
+                                ],
+                                "confidence": 0.996,
+                                "text": "\u3066"
+                            },
+                            {
+                                "boundingBox": [
+                                    113,
+                                    182,
+                                    134,
+                                    182,
+                                    134,
+                                    199,
+                                    114,
+                                    199
+                                ],
+                                "confidence": 0.997,
+                                "text": "\u3082"
                             }
                         ]
                     },
                     {
-                        "LineText": "\u52e2\u3044\u3067\u624b\u3092\u63e1\u3063\u3066",
-                        "MaxHeight": 21.0,
-                        "MinTop": 21.0,
-                        "Words": [
+                        "boundingBox": [
+                            140,
+                            19,
+                            163,
+                            19,
+                            164,
+                            135,
+                            141,
+                            135
+                        ],
+                        "text": "\u5acc\u3060\u3063\u305f\u3089",
+                        "words": [
                             {
-                                "Height": 21.0,
-                                "Left": 626.0,
-                                "Top": 21.0,
-                                "Width": 21.0,
-                                "WordText": "\u52e2"
+                                "boundingBox": [
+                                    140,
+                                    25,
+                                    164,
+                                    25,
+                                    164,
+                                    43,
+                                    141,
+                                    42
+                                ],
+                                "confidence": 0.991,
+                                "text": "\u5acc"
                             },
                             {
-                                "Height": 14.0,
-                                "Left": 628.0,
-                                "Top": 47.0,
-                                "Width": 18.0,
-                                "WordText": "\u3044"
+                                "boundingBox": [
+                                    141,
+                                    46,
+                                    164,
+                                    47,
+                                    164,
+                                    64,
+                                    141,
+                                    64
+                                ],
+                                "confidence": 0.996,
+                                "text": "\u3060"
                             },
                             {
-                                "Height": 18.0,
-                                "Left": 628.0,
-                                "Top": 67.0,
-                                "Width": 18.0,
-                                "WordText": "\u3067"
+                                "boundingBox": [
+                                    141,
+                                    67,
+                                    164,
+                                    67,
+                                    164,
+                                    85,
+                                    141,
+                                    84
+                                ],
+                                "confidence": 0.994,
+                                "text": "\u3063"
                             },
                             {
-                                "Height": 21.0,
-                                "Left": 626.0,
-                                "Top": 88.0,
-                                "Width": 21.0,
-                                "WordText": "\u624b"
+                                "boundingBox": [
+                                    141,
+                                    92,
+                                    164,
+                                    92,
+                                    164,
+                                    110,
+                                    142,
+                                    109
+                                ],
+                                "confidence": 0.996,
+                                "text": "\u305f"
                             },
                             {
-                                "Height": 19.0,
-                                "Left": 629.0,
-                                "Top": 111.0,
-                                "Width": 16.0,
-                                "WordText": "\u3092"
-                            },
-                            {
-                                "Height": 20.0,
-                                "Left": 626.0,
-                                "Top": 133.0,
-                                "Width": 21.0,
-                                "WordText": "\u63e1"
-                            },
-                            {
-                                "Height": 10.0,
-                                "Left": 631.0,
-                                "Top": 161.0,
-                                "Width": 15.0,
-                                "WordText": "\u3063"
-                            },
-                            {
-                                "Height": 17.0,
-                                "Left": 628.0,
-                                "Top": 180.0,
-                                "Width": 17.0,
-                                "WordText": "\u3066"
+                                "boundingBox": [
+                                    142,
+                                    114,
+                                    164,
+                                    114,
+                                    164,
+                                    131,
+                                    141,
+                                    131
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u3089"
                             }
                         ]
                     },
                     {
-                        "LineText": "\u3057\u307e\u3063\u305f\u304c",
-                        "MaxHeight": 21.0,
-                        "MinTop": 22.0,
-                        "Words": [
+                        "boundingBox": [
+                            597,
+                            18,
+                            621,
+                            18,
+                            620,
+                            133,
+                            596,
+                            133
+                        ],
+                        "text": "\u3057\u307e\u3063\u305f\u304c",
+                        "words": [
                             {
-                                "Height": 18.0,
-                                "Left": 603.0,
-                                "Top": 22.0,
-                                "Width": 14.0,
-                                "WordText": "\u3057"
+                                "boundingBox": [
+                                    599,
+                                    21,
+                                    620,
+                                    22,
+                                    620,
+                                    37,
+                                    599,
+                                    36
+                                ],
+                                "confidence": 0.996,
+                                "text": "\u3057"
                             },
                             {
-                                "Height": 21.0,
-                                "Left": 602.0,
-                                "Top": 43.0,
-                                "Width": 13.0,
-                                "WordText": "\u307e"
+                                "boundingBox": [
+                                    598,
+                                    44,
+                                    620,
+                                    45,
+                                    620,
+                                    61,
+                                    598,
+                                    60
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u307e"
                             },
                             {
-                                "Height": 11.0,
-                                "Left": 603.0,
-                                "Top": 71.0,
-                                "Width": 15.0,
-                                "WordText": "\u3063"
+                                "boundingBox": [
+                                    598,
+                                    65,
+                                    620,
+                                    66,
+                                    620,
+                                    82,
+                                    598,
+                                    81
+                                ],
+                                "confidence": 0.991,
+                                "text": "\u3063"
                             },
                             {
-                                "Height": 19.0,
-                                "Left": 600.0,
-                                "Top": 89.0,
-                                "Width": 17.0,
-                                "WordText": "\u305f"
+                                "boundingBox": [
+                                    597,
+                                    90,
+                                    620,
+                                    91,
+                                    620,
+                                    106,
+                                    597,
+                                    106
+                                ],
+                                "confidence": 0.997,
+                                "text": "\u305f"
                             },
                             {
-                                "Height": 17.0,
-                                "Left": 599.0,
-                                "Top": 112.0,
-                                "Width": 21.0,
-                                "WordText": "\u304c"
+                                "boundingBox": [
+                                    597,
+                                    111,
+                                    620,
+                                    112,
+                                    621,
+                                    127,
+                                    597,
+                                    126
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u304c"
                             }
                         ]
                     },
                     {
-                        "LineText": "\u5acc\u3060\u3063\u305f\u3089",
-                        "MaxHeight": 21.0,
-                        "MinTop": 23.0,
-                        "Words": [
+                        "boundingBox": [
+                            625,
+                            19,
+                            648,
+                            18,
+                            649,
+                            197,
+                            626,
+                            197
+                        ],
+                        "text": "\u52e2\u3044\u3067\u624b\u3092\u63e1\u3063\u3066",
+                        "words": [
                             {
-                                "Height": 21.0,
-                                "Left": 141.0,
-                                "Top": 23.0,
-                                "Width": 21.0,
-                                "WordText": "\u5acc"
+                                "boundingBox": [
+                                    625,
+                                    21,
+                                    648,
+                                    21,
+                                    648,
+                                    39,
+                                    625,
+                                    39
+                                ],
+                                "confidence": 0.995,
+                                "text": "\u52e2"
                             },
                             {
-                                "Height": 18.0,
-                                "Left": 143.0,
-                                "Top": 47.0,
-                                "Width": 20.0,
-                                "WordText": "\u3060"
+                                "boundingBox": [
+                                    625,
+                                    43,
+                                    648,
+                                    43,
+                                    649,
+                                    60,
+                                    625,
+                                    60
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u3044"
                             },
                             {
-                                "Height": 11.0,
-                                "Left": 146.0,
-                                "Top": 73.0,
-                                "Width": 15.0,
-                                "WordText": "\u3063"
+                                "boundingBox": [
+                                    625,
+                                    66,
+                                    649,
+                                    66,
+                                    649,
+                                    82,
+                                    625,
+                                    82
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u3067"
                             },
                             {
-                                "Height": 18.0,
-                                "Left": 143.0,
-                                "Top": 92.0,
-                                "Width": 17.0,
-                                "WordText": "\u305f"
+                                "boundingBox": [
+                                    625,
+                                    88,
+                                    649,
+                                    88,
+                                    649,
+                                    104,
+                                    625,
+                                    105
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u624b"
                             },
                             {
-                                "Height": 20.0,
-                                "Left": 146.0,
-                                "Top": 113.0,
-                                "Width": 13.0,
-                                "WordText": "\u3089"
+                                "boundingBox": [
+                                    625,
+                                    112,
+                                    649,
+                                    111,
+                                    649,
+                                    128,
+                                    626,
+                                    128
+                                ],
+                                "confidence": 0.996,
+                                "text": "\u3092"
+                            },
+                            {
+                                "boundingBox": [
+                                    626,
+                                    135,
+                                    649,
+                                    135,
+                                    649,
+                                    152,
+                                    626,
+                                    152
+                                ],
+                                "confidence": 0.994,
+                                "text": "\u63e1"
+                            },
+                            {
+                                "boundingBox": [
+                                    626,
+                                    155,
+                                    649,
+                                    154,
+                                    650,
+                                    171,
+                                    626,
+                                    171
+                                ],
+                                "confidence": 0.996,
+                                "text": "\u3063"
+                            },
+                            {
+                                "boundingBox": [
+                                    626,
+                                    177,
+                                    650,
+                                    176,
+                                    650,
+                                    193,
+                                    627,
+                                    194
+                                ],
+                                "confidence": 0.996,
+                                "text": "\u3066"
                             }
                         ]
                     },
                     {
-                        "LineText": "\u96e2\u3057\u3066\u3082\u3089\u3063\u3066\u3082",
-                        "MaxHeight": 21.0,
-                        "MinTop": 23.0,
-                        "Words": [
+                        "boundingBox": [
+                            654,
+                            19,
+                            675,
+                            19,
+                            676,
+                            132,
+                            654,
+                            132
+                        ],
+                        "text": "\u305d\u3046\u3044\u3048\u3070",
+                        "words": [
                             {
-                                "Height": 21.0,
-                                "Left": 113.0,
-                                "Top": 23.0,
-                                "Width": 21.0,
-                                "WordText": "\u96e2"
+                                "boundingBox": [
+                                    654,
+                                    22,
+                                    675,
+                                    21,
+                                    675,
+                                    37,
+                                    654,
+                                    37
+                                ],
+                                "confidence": 0.996,
+                                "text": "\u305d"
                             },
                             {
-                                "Height": 18.0,
-                                "Left": 118.0,
-                                "Top": 47.0,
-                                "Width": 14.0,
-                                "WordText": "\u3057"
+                                "boundingBox": [
+                                    654,
+                                    42,
+                                    675,
+                                    42,
+                                    676,
+                                    57,
+                                    654,
+                                    57
+                                ],
+                                "confidence": 0.995,
+                                "text": "\u3046"
                             },
                             {
-                                "Height": 17.0,
-                                "Left": 115.0,
-                                "Top": 70.0,
-                                "Width": 17.0,
-                                "WordText": "\u3066"
+                                "boundingBox": [
+                                    654,
+                                    67,
+                                    676,
+                                    66,
+                                    676,
+                                    82,
+                                    654,
+                                    82
+                                ],
+                                "confidence": 0.997,
+                                "text": "\u3044"
                             },
                             {
-                                "Height": 19.0,
-                                "Left": 117.0,
-                                "Top": 91.0,
-                                "Width": 12.0,
-                                "WordText": "\u3082"
+                                "boundingBox": [
+                                    654,
+                                    90,
+                                    676,
+                                    89,
+                                    676,
+                                    105,
+                                    654,
+                                    105
+                                ],
+                                "confidence": 0.992,
+                                "text": "\u3048"
                             },
                             {
-                                "Height": 20.0,
-                                "Left": 117.0,
-                                "Top": 113.0,
-                                "Width": 14.0,
-                                "WordText": "\u3089"
-                            },
-                            {
-                                "Height": 11.0,
-                                "Left": 118.0,
-                                "Top": 140.0,
-                                "Width": 15.0,
-                                "WordText": "\u3063"
-                            },
-                            {
-                                "Height": 17.0,
-                                "Left": 115.0,
-                                "Top": 159.0,
-                                "Width": 17.0,
-                                "WordText": "\u3066"
-                            },
-                            {
-                                "Height": 20.0,
-                                "Left": 117.0,
-                                "Top": 180.0,
-                                "Width": 12.0,
-                                "WordText": "\u3082"
+                                "boundingBox": [
+                                    654,
+                                    111,
+                                    677,
+                                    111,
+                                    677,
+                                    128,
+                                    655,
+                                    128
+                                ],
+                                "confidence": 0.995,
+                                "text": "\u3070"
                             }
                         ]
                     },
                     {
-                        "LineText": "\u30e9\u3066\u3001\u30d5\u30ab",
-                        "MaxHeight": 19.0,
-                        "MinTop": 739.0,
-                        "Words": [
+                        "boundingBox": [
+                            682,
+                            3,
+                            718,
+                            2,
+                            719,
+                            37,
+                            684,
+                            37
+                        ],
+                        "text": "\u3042",
+                        "words": [
                             {
-                                "Height": 8.0,
-                                "Left": 680.0,
-                                "Top": 739.0,
-                                "Width": 10.0,
-                                "WordText": "\u30e9"
-                            },
-                            {
-                                "Height": 14.0,
-                                "Left": 676.0,
-                                "Top": 747.0,
-                                "Width": 18.0,
-                                "WordText": "\u3066"
-                            },
-                            {
-                                "Height": 6.0,
-                                "Left": 680.0,
-                                "Top": 765.0,
-                                "Width": 9.0,
-                                "WordText": "\u3001"
-                            },
-                            {
-                                "Height": 17.0,
-                                "Left": 678.0,
-                                "Top": 771.0,
-                                "Width": 13.0,
-                                "WordText": "\u30d5"
-                            },
-                            {
-                                "Height": 19.0,
-                                "Left": 675.0,
-                                "Top": 793.0,
-                                "Width": 14.0,
-                                "WordText": "\u30ab"
+                                "boundingBox": [
+                                    685,
+                                    2,
+                                    711,
+                                    2,
+                                    712,
+                                    37,
+                                    685,
+                                    37
+                                ],
+                                "confidence": 0.909,
+                                "text": "\u3042"
                             }
                         ]
                     },
                     {
-                        "LineText": "\u3046\u3093",
-                        "MaxHeight": 26.0,
-                        "MinTop": 795.0,
-                        "Words": [
+                        "boundingBox": [
+                            686,
+                            39,
+                            716,
+                            40,
+                            716,
+                            62,
+                            686,
+                            63
+                        ],
+                        "text": "\u3042",
+                        "words": [
                             {
-                                "Height": 26.0,
-                                "Left": 110.0,
-                                "Top": 795.0,
-                                "Width": 15.0,
-                                "WordText": "\u3046"
-                            },
-                            {
-                                "Height": 25.0,
-                                "Left": 107.0,
-                                "Top": 825.0,
-                                "Width": 24.0,
-                                "WordText": "\u3093"
+                                "boundingBox": [
+                                    690,
+                                    39,
+                                    708,
+                                    39,
+                                    708,
+                                    63,
+                                    690,
+                                    63
+                                ],
+                                "confidence": 0.874,
+                                "text": "\u3042"
                             }
                         ]
                     },
                     {
-                        "LineText": "\u7b2cI\u8a71\u300c\u4e00\u7dd2\u306b\u5c45\u305f\u3044\u306e\u300d",
-                        "MaxHeight": 41.0,
-                        "MinTop": 1036.0,
-                        "Words": [
+                        "boundingBox": [
+                            630,
+                            302,
+                            670,
+                            299,
+                            673,
+                            338,
+                            633,
+                            340
+                        ],
+                        "text": "\u5acc",
+                        "words": [
                             {
-                                "Height": 41.0,
-                                "Left": 175.0,
-                                "Top": 1036.0,
-                                "Width": 40.0,
-                                "WordText": "\u7b2c"
-                            },
-                            {
-                                "Height": 32.0,
-                                "Left": 228.0,
-                                "Top": 1040.0,
-                                "Width": 16.0,
-                                "WordText": "I"
-                            },
-                            {
-                                "Height": 41.0,
-                                "Left": 258.0,
-                                "Top": 1036.0,
-                                "Width": 39.0,
-                                "WordText": "\u8a71"
-                            },
-                            {
-                                "Height": 39.0,
-                                "Left": 301.0,
-                                "Top": 1037.0,
-                                "Width": 15.0,
-                                "WordText": "\u300c"
-                            },
-                            {
-                                "Height": 7.0,
-                                "Left": 320.0,
-                                "Top": 1049.0,
-                                "Width": 38.0,
-                                "WordText": "\u4e00"
-                            },
-                            {
-                                "Height": 41.0,
-                                "Left": 360.0,
-                                "Top": 1036.0,
-                                "Width": 40.0,
-                                "WordText": "\u7dd2"
-                            },
-                            {
-                                "Height": 34.0,
-                                "Left": 405.0,
-                                "Top": 1039.0,
-                                "Width": 33.0,
-                                "WordText": "\u306b"
-                            },
-                            {
-                                "Height": 41.0,
-                                "Left": 442.0,
-                                "Top": 1036.0,
-                                "Width": 40.0,
-                                "WordText": "\u5c45"
-                            },
-                            {
-                                "Height": 36.0,
-                                "Left": 486.0,
-                                "Top": 1038.0,
-                                "Width": 35.0,
-                                "WordText": "\u305f"
-                            },
-                            {
-                                "Height": 29.0,
-                                "Left": 526.0,
-                                "Top": 1042.0,
-                                "Width": 36.0,
-                                "WordText": "\u3044"
-                            },
-                            {
-                                "Height": 30.0,
-                                "Left": 567.0,
-                                "Top": 1042.0,
-                                "Width": 36.0,
-                                "WordText": "\u306e"
-                            },
-                            {
-                                "Height": 38.0,
-                                "Left": 608.0,
-                                "Top": 1037.0,
-                                "Width": 15.0,
-                                "WordText": "\u300d"
+                                "boundingBox": [
+                                    633,
+                                    301,
+                                    663,
+                                    299,
+                                    665,
+                                    338,
+                                    636,
+                                    340
+                                ],
+                                "confidence": 0.993,
+                                "text": "\u5acc"
                             }
                         ]
                     },
                     {
-                        "LineText": "\u25c6\u7b2c1.5\u8a71\u3082",
-                        "MaxHeight": 16.0,
-                        "MinTop": 1062.0,
-                        "Words": [
+                        "boundingBox": [
+                            108,
+                            478,
+                            139,
+                            478,
+                            138,
+                            597,
+                            108,
+                            597
+                        ],
+                        "text": "\u96e2\u3055\u306a\u3044",
+                        "words": [
                             {
-                                "Height": 15.0,
-                                "Left": 13.0,
-                                "Top": 1062.0,
-                                "Width": 15.0,
-                                "WordText": "\u25c6"
+                                "boundingBox": [
+                                    108,
+                                    486,
+                                    138,
+                                    485,
+                                    139,
+                                    509,
+                                    109,
+                                    510
+                                ],
+                                "confidence": 0.995,
+                                "text": "\u96e2"
                             },
                             {
-                                "Height": 16.0,
-                                "Left": 29.0,
-                                "Top": 1062.0,
-                                "Width": 16.0,
-                                "WordText": "\u7b2c"
+                                "boundingBox": [
+                                    109,
+                                    511,
+                                    139,
+                                    511,
+                                    139,
+                                    533,
+                                    110,
+                                    533
+                                ],
+                                "confidence": 0.994,
+                                "text": "\u3055"
                             },
                             {
-                                "Height": 14.0,
-                                "Left": 47.0,
-                                "Top": 1062.0,
-                                "Width": 20.0,
-                                "WordText": "1.5"
+                                "boundingBox": [
+                                    110,
+                                    544,
+                                    139,
+                                    544,
+                                    138,
+                                    566,
+                                    110,
+                                    566
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u306a"
                             },
                             {
-                                "Height": 16.0,
-                                "Left": 68.0,
-                                "Top": 1062.0,
-                                "Width": 16.0,
-                                "WordText": "\u8a71"
-                            },
-                            {
-                                "Height": 15.0,
-                                "Left": 86.0,
-                                "Top": 1062.0,
-                                "Width": 15.0,
-                                "WordText": "\u3082"
+                                "boundingBox": [
+                                    110,
+                                    573,
+                                    138,
+                                    573,
+                                    136,
+                                    595,
+                                    109,
+                                    594
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u3044"
                             }
                         ]
                     },
                     {
-                        "LineText": "\u66f4\u65b0\u4e2d\u2033\u30fb",
-                        "MaxHeight": 17.0,
-                        "MinTop": 1082.0,
-                        "Words": [
+                        "boundingBox": [
+                            146,
+                            476,
+                            175,
+                            477,
+                            176,
+                            541,
+                            145,
+                            540
+                        ],
+                        "text": "\u7d76\u5bfe",
+                        "words": [
                             {
-                                "Height": 16.0,
-                                "Left": 29.0,
-                                "Top": 1083.0,
-                                "Width": 16.0,
-                                "WordText": "\u66f4"
+                                "boundingBox": [
+                                    145,
+                                    485,
+                                    176,
+                                    485,
+                                    176,
+                                    509,
+                                    145,
+                                    509
+                                ],
+                                "confidence": 0.945,
+                                "text": "\u7d76"
                             },
                             {
-                                "Height": 16.0,
-                                "Left": 46.0,
-                                "Top": 1083.0,
-                                "Width": 16.0,
-                                "WordText": "\u65b0"
+                                "boundingBox": [
+                                    145,
+                                    514,
+                                    176,
+                                    514,
+                                    176,
+                                    537,
+                                    145,
+                                    537
+                                ],
+                                "confidence": 0.992,
+                                "text": "\u5bfe"
+                            }
+                        ]
+                    },
+                    {
+                        "boundingBox": [
+                            736,
+                            715,
+                            754,
+                            711,
+                            764,
+                            744,
+                            746,
+                            750
+                        ],
+                        "text": "\u3064\u3063",
+                        "words": [
+                            {
+                                "boundingBox": [
+                                    736,
+                                    715,
+                                    754,
+                                    711,
+                                    758,
+                                    723,
+                                    740,
+                                    728
+                                ],
+                                "confidence": 0.872,
+                                "text": "\u3064"
                             },
                             {
-                                "Height": 17.0,
-                                "Left": 63.0,
-                                "Top": 1082.0,
-                                "Width": 16.0,
-                                "WordText": "\u4e2d"
+                                "boundingBox": [
+                                    742,
+                                    734,
+                                    760,
+                                    729,
+                                    764,
+                                    742,
+                                    746,
+                                    748
+                                ],
+                                "confidence": 0.93,
+                                "text": "\u3063"
+                            }
+                        ]
+                    },
+                    {
+                        "boundingBox": [
+                            107,
+                            793,
+                            127,
+                            794,
+                            129,
+                            851,
+                            109,
+                            854
+                        ],
+                        "text": "\u3046\u3093",
+                        "words": [
+                            {
+                                "boundingBox": [
+                                    107,
+                                    794,
+                                    128,
+                                    793,
+                                    129,
+                                    809,
+                                    108,
+                                    809
+                                ],
+                                "confidence": 0.971,
+                                "text": "\u3046"
                             },
                             {
-                                "Height": 13.0,
-                                "Left": 81.0,
-                                "Top": 1084.0,
-                                "Width": 14.0,
-                                "WordText": "\u2033"
+                                "boundingBox": [
+                                    108,
+                                    829,
+                                    129,
+                                    828,
+                                    130,
+                                    844,
+                                    109,
+                                    844
+                                ],
+                                "confidence": 0.997,
+                                "text": "\u3093"
+                            }
+                        ]
+                    },
+                    {
+                        "boundingBox": [
+                            671,
+                            732,
+                            698,
+                            732,
+                            698,
+                            814,
+                            671,
+                            814
+                        ],
+                        "text": "\u305d\u3046\u304b",
+                        "words": [
+                            {
+                                "boundingBox": [
+                                    672,
+                                    739,
+                                    697,
+                                    738,
+                                    697,
+                                    756,
+                                    673,
+                                    757
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u305d"
                             },
                             {
-                                "Height": 3.0,
-                                "Left": 95.0,
-                                "Top": 1091.0,
-                                "Width": 4.0,
-                                "WordText": "\u30fb"
+                                "boundingBox": [
+                                    673,
+                                    764,
+                                    697,
+                                    764,
+                                    698,
+                                    784,
+                                    673,
+                                    784
+                                ],
+                                "confidence": 0.995,
+                                "text": "\u3046"
+                            },
+                            {
+                                "boundingBox": [
+                                    672,
+                                    791,
+                                    698,
+                                    791,
+                                    698,
+                                    809,
+                                    671,
+                                    809
+                                ],
+                                "confidence": 0.996,
+                                "text": "\u304b"
+                            }
+                        ]
+                    },
+                    {
+                        "boundingBox": [
+                            171,
+                            1034,
+                            626,
+                            1034,
+                            626,
+                            1078,
+                            171,
+                            1079
+                        ],
+                        "text": "\u7b2c1\u8a71\u300c\u4e00\u7dd2\u306b\u5c45\u305f\u3044\u306e\u300d",
+                        "words": [
+                            {
+                                "boundingBox": [
+                                    177,
+                                    1035,
+                                    210,
+                                    1035,
+                                    209,
+                                    1080,
+                                    175,
+                                    1080
+                                ],
+                                "confidence": 0.994,
+                                "text": "\u7b2c"
+                            },
+                            {
+                                "boundingBox": [
+                                    218,
+                                    1035,
+                                    251,
+                                    1035,
+                                    250,
+                                    1080,
+                                    217,
+                                    1080
+                                ],
+                                "confidence": 0.995,
+                                "text": "1"
+                            },
+                            {
+                                "boundingBox": [
+                                    262,
+                                    1035,
+                                    293,
+                                    1034,
+                                    292,
+                                    1080,
+                                    261,
+                                    1080
+                                ],
+                                "confidence": 0.989,
+                                "text": "\u8a71"
+                            },
+                            {
+                                "boundingBox": [
+                                    294,
+                                    1034,
+                                    314,
+                                    1034,
+                                    313,
+                                    1079,
+                                    293,
+                                    1080
+                                ],
+                                "confidence": 0.995,
+                                "text": "\u300c"
+                            },
+                            {
+                                "boundingBox": [
+                                    314,
+                                    1034,
+                                    347,
+                                    1034,
+                                    347,
+                                    1079,
+                                    314,
+                                    1079
+                                ],
+                                "confidence": 0.991,
+                                "text": "\u4e00"
+                            },
+                            {
+                                "boundingBox": [
+                                    364,
+                                    1034,
+                                    397,
+                                    1034,
+                                    397,
+                                    1079,
+                                    364,
+                                    1079
+                                ],
+                                "confidence": 0.991,
+                                "text": "\u7dd2"
+                            },
+                            {
+                                "boundingBox": [
+                                    399,
+                                    1034,
+                                    432,
+                                    1034,
+                                    432,
+                                    1079,
+                                    399,
+                                    1079
+                                ],
+                                "confidence": 0.997,
+                                "text": "\u306b"
+                            },
+                            {
+                                "boundingBox": [
+                                    446,
+                                    1034,
+                                    479,
+                                    1034,
+                                    479,
+                                    1079,
+                                    446,
+                                    1079
+                                ],
+                                "confidence": 0.991,
+                                "text": "\u5c45"
+                            },
+                            {
+                                "boundingBox": [
+                                    484,
+                                    1034,
+                                    517,
+                                    1035,
+                                    517,
+                                    1079,
+                                    484,
+                                    1079
+                                ],
+                                "confidence": 0.993,
+                                "text": "\u305f"
+                            },
+                            {
+                                "boundingBox": [
+                                    523,
+                                    1035,
+                                    556,
+                                    1035,
+                                    555,
+                                    1079,
+                                    522,
+                                    1079
+                                ],
+                                "confidence": 0.996,
+                                "text": "\u3044"
+                            },
+                            {
+                                "boundingBox": [
+                                    564,
+                                    1035,
+                                    597,
+                                    1035,
+                                    597,
+                                    1079,
+                                    563,
+                                    1079
+                                ],
+                                "confidence": 0.993,
+                                "text": "\u306e"
+                            },
+                            {
+                                "boundingBox": [
+                                    602,
+                                    1036,
+                                    627,
+                                    1036,
+                                    627,
+                                    1079,
+                                    602,
+                                    1079
+                                ],
+                                "confidence": 0.995,
+                                "text": "\u300d"
+                            }
+                        ]
+                    },
+                    {
+                        "boundingBox": [
+                            9,
+                            1060,
+                            103,
+                            1059,
+                            103,
+                            1079,
+                            9,
+                            1079
+                        ],
+                        "text": "\u25c6\u7b2c1.5\u8a71\u3082",
+                        "words": [
+                            {
+                                "boundingBox": [
+                                    11,
+                                    1061,
+                                    24,
+                                    1061,
+                                    25,
+                                    1079,
+                                    12,
+                                    1079
+                                ],
+                                "confidence": 0.54,
+                                "text": "\u25c6"
+                            },
+                            {
+                                "boundingBox": [
+                                    29,
+                                    1061,
+                                    42,
+                                    1061,
+                                    42,
+                                    1079,
+                                    29,
+                                    1079
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u7b2c"
+                            },
+                            {
+                                "boundingBox": [
+                                    44,
+                                    1061,
+                                    69,
+                                    1060,
+                                    69,
+                                    1080,
+                                    44,
+                                    1079
+                                ],
+                                "confidence": 0.993,
+                                "text": "1.5"
+                            },
+                            {
+                                "boundingBox": [
+                                    69,
+                                    1060,
+                                    83,
+                                    1060,
+                                    83,
+                                    1080,
+                                    70,
+                                    1080
+                                ],
+                                "confidence": 0.991,
+                                "text": "\u8a71"
+                            },
+                            {
+                                "boundingBox": [
+                                    84,
+                                    1060,
+                                    97,
+                                    1060,
+                                    96,
+                                    1080,
+                                    83,
+                                    1080
+                                ],
+                                "confidence": 0.998,
+                                "text": "\u3082"
+                            }
+                        ]
+                    },
+                    {
+                        "boundingBox": [
+                            28,
+                            1080,
+                            111,
+                            1078,
+                            112,
+                            1098,
+                            29,
+                            1100
+                        ],
+                        "text": "\u66f4\u65b0\u4e2d !!",
+                        "words": [
+                            {
+                                "boundingBox": [
+                                    29,
+                                    1081,
+                                    42,
+                                    1081,
+                                    43,
+                                    1100,
+                                    29,
+                                    1100
+                                ],
+                                "confidence": 1,
+                                "text": "\u66f4"
+                            },
+                            {
+                                "boundingBox": [
+                                    45,
+                                    1081,
+                                    60,
+                                    1081,
+                                    60,
+                                    1100,
+                                    45,
+                                    1100
+                                ],
+                                "confidence": 1,
+                                "text": "\u65b0"
+                            },
+                            {
+                                "boundingBox": [
+                                    61,
+                                    1081,
+                                    75,
+                                    1081,
+                                    76,
+                                    1099,
+                                    61,
+                                    1100
+                                ],
+                                "confidence": 1,
+                                "text": "\u4e2d"
+                            },
+                            {
+                                "boundingBox": [
+                                    76,
+                                    1081,
+                                    99,
+                                    1080,
+                                    100,
+                                    1098,
+                                    77,
+                                    1099
+                                ],
+                                "confidence": 1,
+                                "text": "!!"
                             }
                         ]
                     }
                 ],
-                "Message": "Total lines: 10"
+                "page": 1,
+                "unit": "pixel",
+                "width": 800
             }
-        }
-    ],
-    "ProcessingTimeInMilliseconds": "765",
-    "SearchablePDFURL": "Searchable PDF not generated as it was not requested."
+        ],
+        "version": "3.2.0"
+    },
+    "createdDateTime": "2021-06-24T00:51:10Z",
+    "lastUpdatedDateTime": "2021-06-24T00:51:12Z",
+    "status": "succeeded"
 }

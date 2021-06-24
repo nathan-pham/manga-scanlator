@@ -4,11 +4,30 @@ import requests, json, math, os
 import pytesseract
 import cv2
 
-
 from automate.main import get_json
 from img_map import img_map
+from ocr import ocr
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+translator = Translator()
+
+font_path = "C:/Users/nathan-pham/Desktop/processing/modes/java/examples/Topics/Interaction/Tickle/data/SourceCodePro-Regular.ttf"
+font = ImageFont.truetype(font_path, 12)
+
+def wrap_text(text, font=font, line_length=100):
+    lines = ['']
+    for word in text.split():
+        line = f'{lines[-1]} {word}'.strip()
+        if font.getlength(text) <= line_length:
+            lines[-1] = line
+        else:
+            lines.append(word)
+    return '\n'.join(lines)
+
+def purge_imgs(mydir="./images"):
+    for f in os.listdir(mydir):
+        os.remove(os.path.join(mydir, f))
+
 
 def download_img(url):
     filename = f"./images/{url.split('/').pop()}.jpeg"
@@ -49,7 +68,6 @@ def unscramble(filename, show=False, download=False):
 
     new_img = Image.new("RGB", (width, height), (255, 255, 255))
 
-
     for y, x, cropped_img in all_crops:
         new_img.paste(cropped_img, (
             x * width_increment, 
@@ -60,13 +78,16 @@ def unscramble(filename, show=False, download=False):
         new_img.show()
 
     if download:
-        new_img.save(f"{download}/{filename.split('/').pop()}")
+        new_img.save(filename)
 
     return new_img
 
 def export_pdf(in_url, out_pdf="./manga.pdf"):
+    purge_imgs()
+    print("purged images")
+    
     manga_json = get_json(in_url)
-    quit_driver()
+    print("retrieved manga api")
 
     pages = manga_json["readableProduct"]["pageStructure"]["pages"]
     img_list = []
@@ -76,50 +97,35 @@ def export_pdf(in_url, out_pdf="./manga.pdf"):
             src = page.get("src")
 
             filename = download_img(src)
-            new_img = unscramble(filename)
-            
+            new_img = unscramble(filename, download=True)
+
+            print("rewrote with unscrambled file")
+
+            data = json.loads(ocr(filename))
+            lines = data["analyzeResult"]["readResults"][0]["lines"]
+
+            draw = ImageDraw.Draw(new_img)
+
+            for line in lines:
+                bbox, text = line["boundingBox"], line["text"]
+                new_bbox = []
+
+                for i in range(len(bbox)):
+                    if i % 2 == 0:
+                        new_bbox.append((bbox[i], bbox[i + 1]))    
+
+                draw.rectangle((new_bbox[0] + new_bbox[-2]), fill=(255, 255, 255))
+
+                translated = str(translator.translate(text, "English"))
+                draw.text(new_bbox[0], wrap_text(translated), (0, 0, 0), font=font, spacing=-1)
+
             img_list.append(new_img)
 
     img1 = img_list.pop(0)
     img1.save(out_pdf, save_all=True, append_images=img_list)
     print("exported pdf", out_pdf)
 
-    return (img1, out_pdf)
 
-# export_pdf("https://tonarinoyj.jp/episode/3269632237330300439")
-# img = unscramble("./images/3269754496293452143-0104389836574dd726d44eaf904c4b1f.jpeg")
-img = Image.open("./bruh.jpeg")
-draw = ImageDraw.Draw(img)
+    return out_pdf
 
-with open("./format.json") as f:
-    data = json.load(f)
-
-lines = data["ParsedResults"][0]["TextOverlay"]["Lines"]
-translator = Translator()
-
-font_path = "C:/Users/nathan-pham/Desktop/processing/modes/java/examples/Topics/Interaction/Tickle/data/SourceCodePro-Regular.ttf"
-font = ImageFont.truetype(font_path, 24)
-
-def get_wrapped_text(text, font, line_length):
-    lines = ['']
-    for word in text.split():
-        line = f'{lines[-1]} {word}'.strip()
-        if font.getlength(text) <= line_length:
-            lines[-1] = line
-        else:
-            lines.append(word)
-    return '\n'.join(lines)
-
-for line in lines:
-    words = line["Words"]
-
-    for word in words:
-        draw.rectangle([word["Left"], word["Top"], word["Left"] + word["Width"], word["Top"] + word["Height"]], outline="black", width=2)
-
-    text = line["LineText"]
-    
-    translated = translator.translate(text, "English")
-    print(translated)
-    draw.text([words[0]["Left"], words[0]["Top"]], get_wrapped_text(str(translated), font, 100), (20, 220, 20), font=font)
-
-img.show()
+export_pdf("https://tonarinoyj.jp/episode/3269632237330300439")

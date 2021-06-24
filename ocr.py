@@ -3,11 +3,9 @@ from azure.cognitiveservices.vision.computervision.models import OperationStatus
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-from array import array
-import os
-from PIL import Image
-import sys
+import requests
 import time
+import os
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -19,5 +17,10 @@ computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredenti
 
 def ocr(filename):
     with open(filename, "rb") as local_image_printed_text:
-        results = computervision_client.read_in_stream(local_image_printed_text, raw=True)
-    return results
+        resource = computervision_client.read_in_stream(local_image_printed_text, raw=True)
+        print("generating ocr resource")
+        time.sleep(5)
+        result_url = resource.headers.get('Operation-Location')
+        result = requests.get(result_url,headers = {"Ocp-Apim-Subscription-Key":subscription_key})
+        print("finished ocr for", filename)
+        return result.text
