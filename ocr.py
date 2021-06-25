@@ -58,10 +58,12 @@ def hacked_ocr(filename):
 
 def rect(bbox):
     def helper(axis, func):
-        result = bbox["vertices"][0][axis]
+        result = bbox["vertices"][0].get(axis, 0) 
+        
+        #[axis]
 
         for i in range(1, 4):
-            current = bbox["vertices"][i][axis]
+            current = bbox["vertices"][i].get(axis, 0)
             result = func(result, current)
 
         return result

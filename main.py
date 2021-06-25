@@ -96,7 +96,7 @@ def convert(filename, img):
     blocks = get_blocks(content)
     bubbles = make_all_bubbles(blocks)
 
-    bboxes = [bubble[1][2] * bubble[1][3] for bubble in bubbles]
+    # bboxes = [bubble[1][2] * bubble[1][3] for bubble in bubbles]
     
     for line in lines:
         bbox, text = line["boundingBox"], line["text"]
@@ -145,4 +145,4 @@ def export_pdf(in_url, start_end=None):
     img1.save(out_pdf, save_all=True, append_images=img_list)
     return out_pdf
 
-export_pdf("https://tonarinoyj.jp/episode/3269632237330300439")
+export_pdf("https://tonarinoyj.jp/episode/3269754496359036797")
